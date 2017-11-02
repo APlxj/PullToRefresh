@@ -10,10 +10,10 @@ import android.widget.Toast;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.util.StatusBarUtil;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
-import com.scwang.smartrefresh.layout.util.DensityUtil;
+import com.swallow.api.RefreshHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.listener.SimpleMultiPurposeListener;
+import com.swallow.util.DensityUtil;
 
 /**
  * 微博列表

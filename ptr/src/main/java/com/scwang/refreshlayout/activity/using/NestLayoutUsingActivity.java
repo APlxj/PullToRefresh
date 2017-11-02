@@ -14,17 +14,17 @@ import android.widget.TextView;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.swallow.api.RefreshLayout;
 
 import java.util.Arrays;
 
 public class NestLayoutUsingActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private static String[] provinces = new String[]{
-            "北京","天津","上海","重庆",
-            "黑龙江","吉林","辽宁","河北","河南","山东","江苏","山西","陕西","甘肃","四川","青海","湖南","湖北","江西","安徽","浙江","福建","广东","广西","贵州","云南","海南",
-            "内蒙古","新疆维吾尔族自治区","宁夏回族自治区","西藏","宁夏回族自治区",
-            "香港","澳门"
+            "北京", "天津", "上海", "重庆",
+            "黑龙江", "吉林", "辽宁", "河北", "河南", "山东", "江苏", "山西", "陕西", "甘肃", "四川", "青海", "湖南", "湖北", "江西", "安徽", "浙江", "福建", "广东", "广西", "贵州", "云南", "海南",
+            "内蒙古", "新疆维吾尔族自治区", "宁夏回族自治区", "西藏", "宁夏回族自治区",
+            "香港", "澳门"
     };
 
     private static boolean isFirstEnter = true;
@@ -49,8 +49,8 @@ public class NestLayoutUsingActivity extends AppCompatActivity implements Adapte
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-            recyclerView.setAdapter(new BaseRecyclerAdapter<String>(Arrays.asList(provinces),android.R.layout.simple_list_item_1) {
+            recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+            recyclerView.setAdapter(new BaseRecyclerAdapter<String>(Arrays.asList(provinces), android.R.layout.simple_list_item_1) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, String model, int position) {
                     holder.text(android.R.id.text1, model);

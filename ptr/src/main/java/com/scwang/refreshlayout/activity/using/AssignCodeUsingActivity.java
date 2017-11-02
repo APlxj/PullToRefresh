@@ -6,12 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.scwang.refreshlayout.R;
-import com.scwang.smartrefresh.header.MaterialHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.RefreshState;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
-import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
+import com.swallow.MaterialHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.constant.RefreshState;
+import com.swallow.constant.SpinnerStyle;
+import com.swallow.footer.BallPulseFooter;
+import com.swallow.listener.SimpleMultiPurposeListener;
 
 /**
  * 在Java代码中指定Header和Footer
@@ -25,7 +25,7 @@ public class AssignCodeUsingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_using_assign_code);
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class AssignCodeUsingActivity extends AppCompatActivity {
             //触发上啦加载
             refreshLayout.autoLoadmore();
             //通过多功能监听接口实现 在第一次加载完成之后 自动刷新
-            refreshLayout.setOnMultiPurposeListener(new SimpleMultiPurposeListener(){
+            refreshLayout.setOnMultiPurposeListener(new SimpleMultiPurposeListener() {
                 @Override
                 public void onStateChanged(RefreshLayout refreshLayout, RefreshState oldState, RefreshState newState) {
                     if (oldState == RefreshState.LoadFinish && newState == RefreshState.None) {

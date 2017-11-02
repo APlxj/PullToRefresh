@@ -46,10 +46,10 @@ public class RefreshUsingFragment extends Fragment implements AdapterView.OnItem
         Listener("多功能监听器", ListenerUsingActivity.class),
         NestLayout("嵌套Layout作为内容", NestLayoutUsingActivity.class),
         Custom("自定义Header", CustomUsingActivity.class),
-        SnapHelper("结合 SnapHelper 使用", SnapHelperUsingActivity.class),
-        ;
+        SnapHelper("结合 SnapHelper 使用", SnapHelperUsingActivity.class),;
         public String name;
         public Class<?> clazz;
+
         Item(String name, Class<?> clazz) {
             this.name = name;
             this.clazz = clazz;
@@ -72,7 +72,7 @@ public class RefreshUsingFragment extends Fragment implements AdapterView.OnItem
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), VERTICAL));
-            recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(Arrays.asList(Item.values()), simple_list_item_2,this) {
+            recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(Arrays.asList(Item.values()), simple_list_item_2, this) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {
                     holder.text(android.R.id.text1, model.name());

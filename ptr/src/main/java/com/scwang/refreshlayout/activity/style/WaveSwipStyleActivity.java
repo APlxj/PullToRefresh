@@ -15,7 +15,7 @@ import android.widget.AdapterView;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.swallow.api.RefreshLayout;
 
 import java.util.Arrays;
 
@@ -30,9 +30,9 @@ public class WaveSwipStyleActivity extends AppCompatActivity implements AdapterV
         橙色主题("更改为橙色主题颜色"),
         红色主题("更改为红色主题颜色"),
         绿色主题("更改为绿色主题颜色"),
-        蓝色主题("更改为蓝色主题颜色"),
-        ;
+        蓝色主题("更改为蓝色主题颜色"),;
         public String name;
+
         Item(String name) {
             this.name = name;
         }
@@ -47,7 +47,7 @@ public class WaveSwipStyleActivity extends AppCompatActivity implements AdapterV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_style_wave_swip);
 
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +55,7 @@ public class WaveSwipStyleActivity extends AppCompatActivity implements AdapterV
             }
         });
 
-        mRefreshLayout = (RefreshLayout)findViewById(R.id.refreshLayout);
+        mRefreshLayout = (RefreshLayout) findViewById(R.id.refreshLayout);
         if (isFirstEnter) {
             isFirstEnter = false;
             mRefreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果
@@ -67,7 +67,7 @@ public class WaveSwipStyleActivity extends AppCompatActivity implements AdapterV
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.addItemDecoration(new DividerItemDecoration(this, VERTICAL));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
-            recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(Arrays.asList(Item.values()), simple_list_item_2,this) {
+            recyclerView.setAdapter(new BaseRecyclerAdapter<Item>(Arrays.asList(Item.values()), simple_list_item_2, this) {
                 @Override
                 protected void onBindViewHolder(SmartViewHolder holder, Item model, int position) {
                     holder.text(android.R.id.text1, model.name());

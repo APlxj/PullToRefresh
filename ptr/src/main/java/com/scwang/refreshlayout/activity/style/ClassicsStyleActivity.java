@@ -6,33 +6,27 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.scwang.refreshlayout.R;
+import com.scwang.refreshlayout.activity.BaseActivity;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
-import com.scwang.refreshlayout.adapter.SmartViewHolder;
 import com.scwang.refreshlayout.util.DynamicTimeFormat;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.constant.SpinnerStyle;
+import com.swallow.footer.ClassicsFooter;
+import com.swallow.header.ClassicsHeader;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
-import static android.R.layout.simple_list_item_2;
-import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
-
-public class ClassicsStyleActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class ClassicsStyleActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
     private BaseRecyclerAdapter<Item> mAdpater;
 
@@ -61,12 +55,15 @@ public class ClassicsStyleActivity extends AppCompatActivity implements AdapterV
     private ClassicsHeader mClassicsHeader;
     private Drawable mDrawableProgress;
     private static boolean isFirstEnter = true;
+    private ClassicsFooter classicsFooter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_style_classics);
 
+        classicsFooter = (ClassicsFooter) findViewById(R.id.ClassicsFooter);
+        classicsFooter.setIRefresh(this);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +85,7 @@ public class ClassicsStyleActivity extends AppCompatActivity implements AdapterV
             mDrawableProgress = ((LayerDrawable) mDrawableProgress).getDrawable(0);
         }
 
-        View view = findViewById(R.id.recyclerView);
+        /*View view = findViewById(R.id.recyclerView);
         if (view instanceof RecyclerView) {
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -103,7 +100,7 @@ public class ClassicsStyleActivity extends AppCompatActivity implements AdapterV
                 }
             });
             mRecyclerView = recyclerView;
-        }
+        }*/
 
         if (isFirstEnter) {
             isFirstEnter = false;
@@ -111,6 +108,12 @@ public class ClassicsStyleActivity extends AppCompatActivity implements AdapterV
             mRefreshLayout.autoRefresh();
         }
 
+    }
+
+    @Override
+    public void loadSucceed(int i) {
+        super.loadSucceed(i);
+        Toast.makeText(this, "加载完成", Toast.LENGTH_SHORT).show();
     }
 
     @Override

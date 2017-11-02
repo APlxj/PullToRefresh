@@ -13,12 +13,12 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.OverScroller;
 
-import com.scwang.smartrefresh.layout.api.RefreshContent;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.impl.RefreshContentWrapper;
-import com.scwang.smartrefresh.layout.impl.RefreshFooterWrapper;
-import com.scwang.smartrefresh.layout.impl.RefreshHeaderWrapper;
+import com.swallow.api.RefreshContent;
+import com.swallow.api.RefreshFooter;
+import com.swallow.api.RefreshHeader;
+import com.swallow.impl.RefreshContentWrapper;
+import com.swallow.impl.RefreshFooterWrapper;
+import com.swallow.impl.RefreshHeaderWrapper;
 
 import static android.view.View.MeasureSpec.AT_MOST;
 import static android.view.View.MeasureSpec.EXACTLY;
@@ -31,7 +31,6 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
  * ScrollView
  * Created by SCWANG on 2017/7/10.
  */
-
 public class RefreshLayout extends ViewGroup implements GestureDetector.OnGestureListener {
 
     private OverScroller mScroller;

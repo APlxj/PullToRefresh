@@ -18,8 +18,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.util.StatusBarUtil;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.swallow.api.RefreshLayout;
+import com.swallow.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
@@ -41,7 +41,7 @@ public class BannerPracticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_banner);
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,12 +64,13 @@ public class BannerPracticeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         if (mAdapter.getItemCount() < 2) {
-                            List<Movie> movies = new Gson().fromJson(JSON_MOVIES, new TypeToken<ArrayList<Movie>>() {}.getType());
+                            List<Movie> movies = new Gson().fromJson(JSON_MOVIES, new TypeToken<ArrayList<Movie>>() {
+                            }.getType());
                             mAdapter.replaceData(movies);
                         }
                         refreshlayout.finishRefresh();
                     }
-                },2000);
+                }, 2000);
             }
         });
 
@@ -134,7 +135,7 @@ public class BannerPracticeActivity extends AppCompatActivity {
         }
     }
 
-    public static List<BannerItem> BANNER_ITEMS = new ArrayList<BannerItem>(){{
+    public static List<BannerItem> BANNER_ITEMS = new ArrayList<BannerItem>() {{
         add(new BannerItem("最后的骑士", R.mipmap.image_movie_header_48621499931969370));
         add(new BannerItem("三生三世十里桃花", R.mipmap.image_movie_header_12981501221820220));
         add(new BannerItem("豆福传", R.mipmap.image_movie_header_12231501221682438));

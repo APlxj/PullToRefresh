@@ -17,15 +17,15 @@ import android.widget.TextView;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshKernel;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.RefreshState;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.internal.ProgressDrawable;
-import com.scwang.smartrefresh.layout.internal.pathview.PathsView;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.scwang.smartrefresh.layout.util.DensityUtil;
+import com.swallow.api.RefreshHeaderEntity;
+import com.swallow.api.RefreshKernel;
+import com.swallow.api.RefreshLayout;
+import com.swallow.constant.RefreshState;
+import com.swallow.constant.SpinnerStyle;
+import com.swallow.internal.ProgressDrawable;
+import com.swallow.internal.pathview.PathsView;
+import com.swallow.listener.OnRefreshListener;
+import com.swallow.util.DensityUtil;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -47,7 +47,7 @@ public class CustomUsingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_using_custom);
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,10 +93,10 @@ public class CustomUsingActivity extends AppCompatActivity {
     }
 
     private Collection<Void> initData() {
-        return Arrays.asList(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+        return Arrays.asList(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
-    public static class ClassicsHeader extends LinearLayout implements RefreshHeader {
+    public static class ClassicsHeader extends RefreshHeaderEntity {
 
         private TextView mHeaderText;//标题文本
         private PathsView mArrowView;//下拉箭头
@@ -105,17 +105,18 @@ public class CustomUsingActivity extends AppCompatActivity {
 
         public ClassicsHeader(Context context) {
             super(context);
-            initView(context);
         }
+
         public ClassicsHeader(Context context, AttributeSet attrs) {
             super(context, attrs);
-            this.initView(context);
         }
+
         public ClassicsHeader(Context context, AttributeSet attrs, int defStyleAttr) {
             super(context, attrs, defStyleAttr);
-            this.initView(context);
         }
-        private void initView(Context context) {
+
+        @Override
+        public void initView(Context context) {
             setGravity(Gravity.CENTER);
             mHeaderText = new TextView(context);
             mProgressDrawable = new ProgressDrawable();
@@ -129,28 +130,33 @@ public class CustomUsingActivity extends AppCompatActivity {
             addView(mHeaderText, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             setMinimumHeight(DensityUtil.dp2px(60));
         }
+
         @NonNull
         public View getView() {
             return this;//真实的视图就是自己，不能返回null
         }
+
         @Override
         public SpinnerStyle getSpinnerStyle() {
             return SpinnerStyle.Translate;//指定为平移，不能null
         }
+
         @Override
         public void onStartAnimator(RefreshLayout layout, int headHeight, int extendHeight) {
             mProgressDrawable.start();//开始动画
         }
+
         @Override
         public int onFinish(RefreshLayout layout, boolean success) {
             mProgressDrawable.stop();//停止动画
-            if (success){
+            if (success) {
                 mHeaderText.setText("刷新完成");
             } else {
                 mHeaderText.setText("刷新失败");
             }
-            return 500;//延迟500毫秒之后再弹回
+            return TIME;//延迟time毫秒之后再弹回
         }
+
         @Override
         public void onStateChanged(RefreshLayout refreshLayout, RefreshState oldState, RefreshState newState) {
             switch (newState) {
@@ -171,28 +177,6 @@ public class CustomUsingActivity extends AppCompatActivity {
                     mArrowView.animate().rotation(180);//显示箭头改为朝上
                     break;
             }
-        }
-        @Override
-        public boolean isSupportHorizontalDrag() {
-            return false;
-        }
-        @Override
-        public void onInitialized(RefreshKernel kernel, int height, int extendHeight) {
-        }
-        @Override
-        public void onHorizontalDrag(float percentX, int offsetX, int offsetMax) {
-        }
-        @Override
-        public void onPullingDown(float percent, int offset, int headHeight, int extendHeight) {
-        }
-        @Override
-        public void onReleasing(float percent, int offset, int headHeight, int extendHeight) {
-        }
-        @Override
-        public void onRefreshReleased(RefreshLayout layout, int headerHeight, int extendHeight) {
-        }
-        @Override
-        public void setPrimaryColors(@ColorInt int ... colors){
         }
     }
 }

@@ -7,25 +7,30 @@
     tools:context="com.scwang.refreshlayout.activity.ExperimentActivity">
 
     <com.scwang.refreshlayout.widget.RefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#888">
-        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#888"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <com.swallow.header.ClassicsHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srlPrimaryColor="#444"
-            app:srlAccentColor="@android:color/white"/>
+            app:srlAccentColor="@android:color/white"
+            app:srlPrimaryColor="#444" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#1bf"
-            tools:listitem="@android:layout/simple_list_item_2"/>
-        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            tools:listitem="@android:layout/simple_list_item_2" />
+
+        <com.swallow.footer.ClassicsFooter
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srlPrimaryColor="#444"
-            app:srlAccentColor="@android:color/white"/>
+            app:srlAccentColor="@android:color/white"
+            app:srlPrimaryColor="#444" />
     </com.scwang.refreshlayout.widget.RefreshLayout>
 
 </android.support.constraint.ConstraintLayout>

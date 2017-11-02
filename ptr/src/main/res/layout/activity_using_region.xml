@@ -7,12 +7,13 @@
     android:orientation="vertical"
     tools:context="com.scwang.refreshlayout.activity.using.NestLayoutUsingActivity">
 
-    <android.support.v7.widget.Toolbar style="@style/AppTheme.Toolbar"
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/AppTheme.Toolbar"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="选择地区" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+    <com.swallow.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,39 +22,47 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/colorBackgroud">
+            android:background="@color/colorBackgroud"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:id="@+id/fsr_region_lyt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:orientation="vertical"
                 android:background="@color/colorBackgroudDark"
-                android:divider="@color/colorAccent">
+                android:divider="@color/colorAccent"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
                     android:padding="10dp">
-                    <TextView style="@style/AppTheme.Label.Title"
+
+                    <TextView
                         android:id="@+id/region"
+                        style="@style/AppTheme.Label.Title"
                         android:hint="@string/region_hint"
-                        android:textColorHint="#8c8c8c"/>
-                    <TextView style="@style/AppTheme.Label.Assistant"
+                        android:textColorHint="#8c8c8c" />
+
+                    <TextView
+                        style="@style/AppTheme.Label.Assistant"
                         android:layout_width="match_parent"
                         android:gravity="end"
-                        android:text="@string/region_name"/>
+                        android:text="@string/region_name" />
                 </LinearLayout>
-                <View style="@style/AppTheme.Divison"/>
+
+                <View style="@style/AppTheme.Divison" />
             </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@android:layout/simple_list_item_1"/>
+                tools:listitem="@android:layout/simple_list_item_1" />
         </LinearLayout>
 
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </com.swallow.SmartRefreshLayout>
 
 </LinearLayout>

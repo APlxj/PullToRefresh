@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.scwang.refreshlayout.R;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.swallow.api.RefreshLayout;
 
 /**
  * 微博列表
@@ -20,7 +20,7 @@ public class FeedlistPracticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_feedlist);
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,29 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.scwang.refreshlayout.activity.style.BezierStyleActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.scwang.refreshlayout.activity.style.BezierStyleActivity">
 
-    <android.support.v7.widget.Toolbar style="@style/AppTheme.Toolbar"
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/AppTheme.Toolbar"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="@string/title_activity_style_fungame_hitblock"/>
+        app:title="@string/title_activity_style_fungame_hitblock" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+    <com.swallow.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srlPrimaryColor="@color/colorPrimary"
         app:srlAccentColor="@android:color/white"
-        app:srlEnableLoadmore="false">
-        <com.scwang.smartrefresh.header.FunGameHitBlockHeader
+        app:srlEnableLoadmore="false"
+        app:srlPrimaryColor="@color/colorPrimary">
+
+        <com.swallow.FunGameHitBlockHeader
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@android:layout/simple_list_item_2"/>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+            tools:listitem="@android:layout/simple_list_item_2" />
+    </com.swallow.SmartRefreshLayout>
 
 </LinearLayout>

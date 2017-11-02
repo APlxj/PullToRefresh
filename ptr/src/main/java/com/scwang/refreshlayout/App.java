@@ -5,18 +5,13 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.swallow.SmartRefreshLayout;
+import com.swallow.api.DefaultRefreshHeaderCreater;
+import com.swallow.api.RefreshHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.constant.SpinnerStyle;
+import com.swallow.header.ClassicsHeader;
 import com.squareup.leakcanary.LeakCanary;
-
-/**
- *
- * Created by SCWANG on 2017/6/11.
- */
 
 public class App extends Application {
 

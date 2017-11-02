@@ -10,9 +10,9 @@ import android.webkit.WebViewClient;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.util.StatusBarUtil;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.scwang.smartrefresh.layout.util.DensityUtil;
+import com.swallow.api.RefreshLayout;
+import com.swallow.listener.OnRefreshListener;
+import com.swallow.util.DensityUtil;
 
 import java.util.Locale;
 

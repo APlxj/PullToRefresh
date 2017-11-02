@@ -31,14 +31,14 @@ import android.widget.TextView;
 
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.util.StatusBarUtil;
-import com.scwang.smartrefresh.header.FlyRefreshHeader;
-import com.scwang.smartrefresh.header.flyrefresh.FlyView;
-import com.scwang.smartrefresh.header.flyrefresh.MountanScenceView;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
-import com.scwang.smartrefresh.layout.util.DensityUtil;
+import com.swallow.FlyRefreshHeader;
+import com.swallow.flyrefresh.FlyView;
+import com.swallow.flyrefresh.MountanScenceView;
+import com.swallow.api.RefreshHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.listener.OnRefreshListener;
+import com.swallow.listener.SimpleMultiPurposeListener;
+import com.swallow.util.DensityUtil;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

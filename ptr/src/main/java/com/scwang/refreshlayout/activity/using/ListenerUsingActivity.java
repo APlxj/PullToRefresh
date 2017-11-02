@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.scwang.refreshlayout.R;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.RefreshState;
-import com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener;
+import com.swallow.api.RefreshFooter;
+import com.swallow.api.RefreshHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.constant.RefreshState;
+import com.swallow.listener.SimpleMultiPurposeListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -46,7 +46,7 @@ public class ListenerUsingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_using_listener);
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +64,7 @@ public class ListenerUsingActivity extends AppCompatActivity {
             public void onHeaderPulling(RefreshHeader header, float percent, int offset, int headerHeight, int extendHeight) {
                 mHeaderPulling = String.format(Locale.CHINA, "%s\npercent=%.02f offset=%03d\nheight=%03d extend=%03d",
                         FORMAT.format(new Date()),
-                        percent,offset,headerHeight,extendHeight);
+                        percent, offset, headerHeight, extendHeight);
                 updateContent();
             }
 
@@ -72,7 +72,7 @@ public class ListenerUsingActivity extends AppCompatActivity {
             public void onHeaderReleasing(RefreshHeader header, float percent, int offset, int headerHeight, int extendHeight) {
                 mHeaderReleasing = String.format(Locale.CHINA, "%s\npercent=%.02f offset=%03d\nheight=%03d extend=%03d",
                         FORMAT.format(new Date()),
-                        percent,offset,headerHeight,extendHeight);
+                        percent, offset, headerHeight, extendHeight);
                 updateContent();
             }
 
@@ -80,13 +80,13 @@ public class ListenerUsingActivity extends AppCompatActivity {
             public void onHeaderStartAnimator(RefreshHeader header, int headerHeight, int extendHeight) {
                 mHeaderStartAnimator = String.format(Locale.CHINA, "%s\nheight=%03d extend=%03d",
                         FORMAT.format(new Date()),
-                        headerHeight,extendHeight);
+                        headerHeight, extendHeight);
                 updateContent();
             }
 
             @Override
             public void onHeaderFinish(RefreshHeader header, boolean success) {
-                mHeaderFinish = String.format(Locale.CHINA, "%s - " + success,FORMAT.format(new Date()));
+                mHeaderFinish = String.format(Locale.CHINA, "%s - " + success, FORMAT.format(new Date()));
                 updateContent();
             }
 
@@ -94,7 +94,7 @@ public class ListenerUsingActivity extends AppCompatActivity {
             public void onFooterPulling(RefreshFooter footer, float percent, int offset, int footerHeight, int extendHeight) {
                 mFooterPulling = String.format(Locale.CHINA, "%s\npercent=%.02f\noffset=%03d height=%03d\nextend=%03d",
                         FORMAT.format(new Date()),
-                        percent,offset,footerHeight,extendHeight);
+                        percent, offset, footerHeight, extendHeight);
                 updateContent();
             }
 
@@ -102,7 +102,7 @@ public class ListenerUsingActivity extends AppCompatActivity {
             public void onFooterReleasing(RefreshFooter footer, float percent, int offset, int footerHeight, int extendHeight) {
                 mFooterReleasing = String.format(Locale.CHINA, "%s\npercent=%.02f\noffset=%03d height=%03d\nextend=%03d",
                         FORMAT.format(new Date()),
-                        percent,offset,footerHeight,extendHeight);
+                        percent, offset, footerHeight, extendHeight);
                 updateContent();
             }
 
@@ -110,25 +110,25 @@ public class ListenerUsingActivity extends AppCompatActivity {
             public void onFooterStartAnimator(RefreshFooter footer, int footerHeight, int extendHeight) {
                 mFooterStartAnimator = String.format(Locale.CHINA, "%s\nheight=%03d extend=%03d",
                         FORMAT.format(new Date()),
-                        footerHeight,extendHeight);
+                        footerHeight, extendHeight);
                 updateContent();
             }
 
             @Override
             public void onFooterFinish(RefreshFooter footer, boolean success) {
-                mFooterFinish = String.format(Locale.CHINA, "%s - " + success,FORMAT.format(new Date()));
+                mFooterFinish = String.format(Locale.CHINA, "%s - " + success, FORMAT.format(new Date()));
                 updateContent();
             }
 
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                mRefresh = String.format(Locale.CHINA, "%s",FORMAT.format(new Date()));
+                mRefresh = String.format(Locale.CHINA, "%s", FORMAT.format(new Date()));
                 updateContent();
             }
 
             @Override
             public void onLoadmore(RefreshLayout refreshlayout) {
-                mLoadmore = String.format(Locale.CHINA, "%s",FORMAT.format(new Date()));
+                mLoadmore = String.format(Locale.CHINA, "%s", FORMAT.format(new Date()));
                 updateContent();
             }
 

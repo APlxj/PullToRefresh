@@ -15,8 +15,8 @@ import android.widget.AdapterView;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
+import com.swallow.api.RefreshLayout;
+import com.swallow.header.BezierRadarHeader;
 
 import java.util.Arrays;
 

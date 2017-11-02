@@ -10,9 +10,9 @@ import android.widget.Toast;
 import com.scwang.refreshlayout.R;
 import com.scwang.refreshlayout.adapter.BaseRecyclerAdapter;
 import com.scwang.refreshlayout.adapter.SmartViewHolder;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.swallow.api.RefreshLayout;
+import com.swallow.listener.OnLoadmoreListener;
+import com.swallow.listener.OnRefreshListener;
 
 import java.util.Arrays;
 import java.util.Collection;
