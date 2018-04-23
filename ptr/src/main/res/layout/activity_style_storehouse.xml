@@ -24,9 +24,9 @@
 
         <com.swallow.StoreHouseHeader
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             app:shhLineWidth="2dp"
-            app:shhText="StoreHouse" />
+            app:shhText="looding..." />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
